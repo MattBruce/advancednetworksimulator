@@ -1,31 +1,31 @@
-# Advanced Network Simulator (ANS Enterprise)
-> **Version 4.2.0-LTS** — *Next-Generation Asynchronous Distributed Packet Telemetry & Heuristic Multi-Layer Network Simulation Engine*
+# Advanced Network Simulator (ANS)
 
+> *The uncompromising, zero-overhead, highly aesthetic multi-layer network simulation suite.*
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](#)
-[![Latency](https://img.shields.io/badge/simulated_latency-0.0000ms-blue)](#)
+[![Simulated Latency](https://img.shields.io/badge/latency-0.0000ms-blue)](#)
 [![RFC-1149](https://img.shields.io/badge/RFC--1149-compliant-orange)](#)
-[![OSI Layer](https://img.shields.io/badge/OSI_Layers-1_through_8-purple)](#)
-[![License](https://img.shields.io/badge/license-Enterprise_Proprietary-red)](#)
+[![Network Traffic](https://img.shields.io/badge/actual__packets__sent-0-lightgrey)](#)
 
 ---
 
 ## 🌐 Overview
 
-**Advanced Network Simulator (ANS)** is an enterprise-grade, browser-native network diagnostic and topology simulation suite designed for high-availability cloud architects, telecommunication engineers, and quantum infrastructure operators.
+**Advanced Network Simulator (ANS)** is an open-source, ultra-lightweight, browser-native diagnostic suite designed for developers, sysadmins, and anyone who appreciates thorough simulated diligence.
 
-By leveraging cutting-edge non-blocking asynchronous event loops and zero-overhead heuristic packet telemetry, ANS benchmarks full OSI stack integrity (Layers 1 through 8) in real time. From baseline ICMP echo response timing to high-order BGP autonomous system route convergence, ANS delivers deep diagnostic insights directly in the browser.
+Featuring a hyper-optimized zero-packet architecture, ANS benchmarks multi-layer topologies with absolute non-interference—ensuring $0.00\text{ms}$ network load and zero bandwidth consumption. From baseline ARP cache inspection to quantum-adjacent BGP route arbitration, ANS provides an authentic, infinite diagnostic experience right in your browser.
 
 ---
 
-## 🚀 Key Features
+## ✨ Key Capabilities
 
-- **Full-Stack Heuristic Verification**: Validates ARP caches, TCP 3-way sliding window handshakes, and TLS 1.3 cryptographic cipher suites.
-- **Autonomous Protocol Arbitration**: Automatically negotiates bilateral peace treaties between TCP and UDP sockets to eliminate connection hostility.
-- **Quantum-Adjacent Latency Optimization**: Probes sub-zero latency thresholds (-12ms) via experimental quantum entanglement bridges.
-- **Carrier Pigeon Fallback Engine**: Fully compliant with **RFC 1149** (Standard for the Transmission of IP Datagrams on Avian Carriers) for offline resilience.
-- **Photon Maintenance Protocol**: Proprietary virtual microfiber algorithms designed to scrub fiber optic lasers and reduce optical refractive degradation.
-- **Multiverse State Convergence**: Re-initializes cosmic background parameters whenever packets stray across parallel dimensional timelines.
-- **Self-Healing Fault Tolerance**: Automatically detects system anomalies, initiates graceful state resets, and recalculates network baselines from scratch.
+- **Zero-Impact Telemetry**: By generating zero real network traffic, ANS guarantees 100% throughput preservation across all physical uplinks.
+- **Autonomous Protocol Arbitration**: Facilitates bilateral peace treaties between TCP and UDP sockets to reduce connection friction.
+- **Carrier Pigeon Fallback Engine**: Fully compliant with **RFC 1149** (*Standard for the Transmission of IP Datagrams on Avian Carriers*) for offline scenarios.
+- **Sub-Zero Latency Probing**: Explores hypothetical negative ping thresholds ($-12\text{ms}$) using theoretical quantum entanglement bridges.
+- **Digital Microfiber Protocols**: Simulates routine laser polishing and photon scrubbing across fiber optic channels.
+- **Autonomous Error Recovery**: Features automatic fault-detection routines that pause, report simulated anomalies, and gracefully recalibrate from scratch.
 
 ---
 
@@ -33,21 +33,21 @@ By leveraging cutting-edge non-blocking asynchronous event loops and zero-overhe
 
 ```mermaid
 graph TD
-    A[Client Browser] --> B[ANS Simulation Kernel]
-    B --> C[Layer 1-4: Physical & Transport Diagnostics]
+    A[Client Browser] --> B[ANS Typewriter Telemetry Kernel]
+    B --> C[Layer 1-4: Baseline & Transport Diagnostics]
     B --> D[Layer 5-7: Session & Application Handshakes]
     B --> E[Layer 8+: Metaphysical & Quantum Arbiter]
     C --> F[BGP / DNS / MTU Analysis]
     D --> G[Cipher Negotiation & Buffer Defrag]
     E --> H[Multiverse Telemetry & Avian Carrier Routing]
-    F & G & H --> I[Infinite Convergence Loop]
+    F & G & H --> I[Infinite State Convergence]
 ```
 
 ---
 
-## 📦 Quick Start & Deployment
+## 🚀 Quick Start
 
-ANS requires zero complex backend dependencies and executes directly inside any modern rendering environment.
+ANS is pure Vanilla HTML/CSS/JS with zero runtime dependencies.
 
 ### 1. Clone the Repository
 ```bash
@@ -55,51 +55,32 @@ git clone https://github.com/moob/advancednetworksimulator.git
 cd advancednetworksimulator
 ```
 
-### 2. Launch Local Server
-Serve the static bundle using any standard HTTP/1.1, HTTP/2, or HTTP/3 web server:
+### 2. Run Locally
+Open `index.html` directly in any web browser, or serve it statically:
 
 ```bash
 # Python 3
 python3 -m http.server 8080
 
-# Node.js (npx)
+# Node.js
 npx serve .
-
-# PHP
-php -S localhost:8080
 ```
 
-### 3. Access Simulation Suite
-Open your browser and navigate to `http://localhost:8080`. The diagnostic pipeline will immediately commence autonomous execution.
+---
+
+## 🛠️ Frequently Asked Questions
+
+#### Q: The simulation has been running for 20 minutes without finishing. Is it stuck?
+> **A:** Network topologies are ever-evolving dynamic systems. True convergence is a continuous journey. Please allow the simulation to proceed uninterrupted.
+
+#### Q: I encountered `Simulation failed: Something went wrong. Retrying`.
+> **A:** The automated watchdog detected an anomaly in the simulated spacetime matrix. It will take a brief 5-second breath before recalibrating from baseline gateway pings.
+
+#### Q: Why is my network usage at 0% while running the test?
+> **A:** That is the peak efficiency of our zero-overhead architecture.
 
 ---
 
-## ⚙️ System Requirements
+## 📜 License
 
-| Parameter | Specification |
-|---|---|
-| **Runtime Environment** | Any ECMAScript 6+ compliant browser |
-| **Processor Architecture** | x86_64, ARM64, or Quantum Processing Unit (QPU) |
-| **Minimum Memory** | 16 MB (Dynamic Cloud RAM will be provisioned if needed) |
-| **Network Uplink** | 10 Gbps Ethernet, Optical Fiber, or Cat6 Memory Array |
-| **Patience Coefficient** | $\ge 9000$ |
-
----
-
-## 🛠️ Troubleshooting & FAQ
-
-#### Q: The simulation has been running for a long time and has not produced a final report. Is it stuck?
-> **A:** No. Network topologies are non-deterministic, ever-evolving dynamical systems. True convergence is continuous. Please allow the simulation to proceed uninterrupted and **do not turn off your universe**.
-
-#### Q: I received the status message `Simulation failed: Something went wrong. Retrying`.
-> **A:** This indicates that the autonomous fail-safe watchdog detected a minor anomaly in the spacetime continuum. The system automatically handles this by pausing for 5 seconds and self-recovering from root DNS nameservers.
-
-#### Q: Why is my router communicating with a smart toaster over Zigbee?
-> **A:** When standard uplinks experience high congestion, ANS dynamically reroutes critical packet streams through nearby low-power IoT appliances to maximize throughput.
-
----
-
-## 📄 License & Compliance
-
-Distributed under the **Enterprise Quantum Simulation License (EQSL)**.  
-*All simulated packets were ethically treated and no ISP hamsters were harmed in the execution of this software.*
+This project is open source and available under the [MIT License](LICENSE). Feel free to use, modify, and share.

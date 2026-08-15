@@ -96,14 +96,23 @@ const messages = [
 ];
 
 // Configuration
-const TYPE_SPEED = 16;            // ms per character while typing
-const PAUSE_DURATION = 1500;      // ms to pause after typing a regular message (+50%, 1.5 seconds)
-const FINAL_PAUSE_DURATION = 5000;// ms to pause on the final "something went wrong" message (+50%, 5 seconds)
-const INITIAL_DELAY = 300;        // ms before starting first message
+const TYPE_SPEED = 16;              // ms per character while typing
+const MIN_PAUSE_DURATION = 2000;    // Minimum baseline pause for any message (ms)
+const MS_PER_CHAR_PAUSE = 20;       // Additional pause per character (ms)
+const FINAL_PAUSE_DURATION = 5000;  // ms to pause on the final "something went wrong" message
+const INITIAL_DELAY = 300;          // ms before starting first message
 
 const statusTextElement = document.getElementById("status-text");
 
 let currentIndex = 0;
+
+/**
+ * Calculates display pause dynamically based on message length.
+ */
+function getPauseDuration(message, isLastMessage) {
+  if (isLastMessage) return FINAL_PAUSE_DURATION;
+  return MIN_PAUSE_DURATION + (message.length * MS_PER_CHAR_PAUSE);
+}
 
 /**
  * Typewriter cycle that types messages and instantly clears for the next.
@@ -126,8 +135,8 @@ function playNextMessage() {
       charIndex++;
       setTimeout(typeChar, TYPE_SPEED);
     } else {
-      // 2. Pause when finished typing (longer pause for the final error message)
-      const currentPause = isLastMessage ? FINAL_PAUSE_DURATION : PAUSE_DURATION;
+      // 2. Pause dynamically based on message length (or longer for final error)
+      const currentPause = getPauseDuration(currentMessage, isLastMessage);
       setTimeout(clearAndNext, currentPause);
     }
   }

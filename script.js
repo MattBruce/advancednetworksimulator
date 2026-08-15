@@ -96,15 +96,28 @@ const messages = [
 ];
 
 // Configuration
-const TYPE_SPEED = 16;              // ms per character while typing
-const MIN_PAUSE_DURATION = 2000;    // Minimum baseline pause for any message (ms)
-const MS_PER_CHAR_PAUSE = 20;       // Additional pause per character (ms)
+const TYPE_SPEED = 20;              // ms per character while typing
+const MIN_PAUSE_DURATION = 2200;    // Minimum baseline pause for any message (ms)
+const MS_PER_CHAR_PAUSE = 25;       // Additional pause per character for comfortable reading (ms)
+const INTER_MESSAGE_GAP = 250;      // ms gap between clearing a message and typing the next
 const FINAL_PAUSE_DURATION = 5000;  // ms to pause on the final "something went wrong" message
-const INITIAL_DELAY = 300;          // ms before starting first message
+const INITIAL_DELAY = 400;          // ms before starting first message
 
 const statusTextElement = document.getElementById("status-text");
 
 let currentIndex = 0;
+let activeTimer = null;
+
+/**
+ * Ensures only one timer is active at any time, preventing timer stacking/acceleration.
+ */
+function scheduleNext(callback, delay) {
+  if (activeTimer) {
+    clearTimeout(activeTimer);
+    activeTimer = null;
+  }
+  activeTimer = setTimeout(callback, delay);
+}
 
 /**
  * Calculates display pause dynamically based on message length.
@@ -115,7 +128,7 @@ function getPauseDuration(message, isLastMessage) {
 }
 
 /**
- * Typewriter cycle that types messages and instantly clears for the next.
+ * Typewriter cycle that types messages and cleanly transitions to the next.
  */
 function playNextMessage() {
   if (!statusTextElement) return;
@@ -128,34 +141,39 @@ function playNextMessage() {
   const isLastMessage = (currentIndex === messages.length - 1);
   let charIndex = 0;
 
-  // 1. Type forward
+  // Ensure clean slate before typing
+  statusTextElement.textContent = "";
+
+  // 1. Type forward character by character
   function typeChar() {
     if (charIndex <= currentMessage.length) {
       statusTextElement.textContent = currentMessage.slice(0, charIndex);
       charIndex++;
-      setTimeout(typeChar, TYPE_SPEED);
+      scheduleNext(typeChar, TYPE_SPEED);
     } else {
       // 2. Pause dynamically based on message length (or longer for final error)
       const currentPause = getPauseDuration(currentMessage, isLastMessage);
-      setTimeout(clearAndNext, currentPause);
+      scheduleNext(clearAndNext, currentPause);
     }
   }
 
-  // 3. Instant clear and proceed to next message
+  // 3. Clear and transition to next message with a brief inter-message gap
   function clearAndNext() {
     statusTextElement.textContent = "";
     currentIndex++;
     if (currentIndex >= messages.length) {
       currentIndex = 0;
     }
-    setTimeout(playNextMessage, 80);
+    scheduleNext(playNextMessage, INTER_MESSAGE_GAP);
   }
 
   // Start typing current message
   typeChar();
 }
 
-// Start simulation on load
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(playNextMessage, INITIAL_DELAY);
-});
+// Start simulation safely regardless of DOM ready timing
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => scheduleNext(playNextMessage, INITIAL_DELAY));
+} else {
+  scheduleNext(playNextMessage, INITIAL_DELAY);
+}
